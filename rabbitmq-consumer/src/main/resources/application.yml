@@ -1,0 +1,23 @@
+server:
+  port: 8022
+spring:
+  #给项目来个名字
+  application:
+    name: rabbitmq-consumer
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: 11.101.4.244
+    port: 5672
+    username: guest
+    password: guest
+#    进行消息分配（能者多劳）
+    listener:
+      simple:
+        # 消费端最大并发数
+        max-concurrency: 5
+        # 消费端最小并发数
+        concurrency: 1
+        # 一次处理的消息数量
+        prefetch: 1
+#        手动ack
+#        acknowledge-mode: manual
